@@ -1,0 +1,26 @@
+class:: UKalman
+summary:: A 1D Unscented Kalman Filter
+related:: TODO
+categories:: UGens>TODO
+
+description::
+
+A 1D Unscented Kalman Filter
+
+
+classmethods::
+
+method::ar, kr
+
+argument::TODO
+
+argument::TODO
+
+
+examples::
+
+code::
+
+{ UKalman.ar(/* TODO */) }.play
+
+::
