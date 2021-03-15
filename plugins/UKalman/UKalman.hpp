@@ -4,12 +4,14 @@
 #pragma once
 
 #include "SC_PlugIn.hpp"
+#include "UkfPoint.hpp"
 
 namespace UKalman {
 
 class UKalman : public SCUnit {
 public:
     UKalman();
+    UkfPoint1d ukf; 
 
     // Destructor
     // ~UKalman();
@@ -17,6 +19,7 @@ public:
 private:
     // Calc function
     void next(int nSamples);
+    int count;
 
     // Member variables
 };

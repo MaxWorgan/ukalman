@@ -67,6 +67,12 @@ endif()
 set(UKalman_cpp_files
     plugins/UKalman/UKalman.cpp
     plugins/UKalman/UKalman.hpp
+    plugins/UKalman/matrix.h
+    plugins/UKalman/UKF.h
+    plugins/UKalman/UKF.cpp
+    plugins/UKalman/UkfPoint.cpp
+    plugins/UKalman/UkfPoint.hpp
+    plugins/UKalman/UKalman.hpp
 )
 set(UKalman_sc_files
     plugins/UKalman/UKalman.sc

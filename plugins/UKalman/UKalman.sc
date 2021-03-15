@@ -1,7 +1,6 @@
 UKalman : UGen {
-	*ar { |input, gain|
-		/* TODO */
-		^this.multiNew('audio', input, gain);
+	*kr { |input, smoothness, rapidness|
+		^this.multiNew('control', input, smoothness, rapidness);
 	}
 	checkInputs {
 		/* TODO */

@@ -1,26 +1,31 @@
 class:: UKalman
 summary:: A 1D Unscented Kalman Filter
 related:: TODO
-categories:: UGens>TODO
+categories:: UGens>Control
 
 description::
 
-A 1D Unscented Kalman Filter
+A 1D Unscented Kalman Filter based on the code at https://github.com/Efreeto/UKF
 
 
 classmethods::
 
-method::ar, kr
+method::kr
 
-argument::TODO
+argument::smoothness
 
-argument::TODO
+argument::rapidness
 
 
 examples::
 
 code::
 
-{ UKalman.ar(/* TODO */) }.play
+//execute this and wiggle the mouse
+{
+    var s = MouseX.kr(0.0,1.0);
+    var k = UKalman.kr(s,0.01,0.01);
+    [s,k,abs(s-k)];
+}.plot(3)
 
 ::

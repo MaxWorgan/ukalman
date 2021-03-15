@@ -8,21 +8,21 @@ static InterfaceTable* ft;
 
 namespace UKalman {
 
-UKalman::UKalman() {
-    mCalcFunc = make_calc_function<UKalman, &UKalman::next>();
-    next(1);
-}
+	UKalman::UKalman() {
+		const double smoothness = in0(1);
+		const double rapidness  = in0(2);
+		ukf.init(smoothness, rapidness);
+		mCalcFunc = make_calc_function<UKalman, &UKalman::next>();
+		next(1);
+		count = 0;
+	}
 
-void UKalman::next(int nSamples) {
-    const float* input = in(0);
-    const float* gain = in(1);
-    float* outbuf = out(0);
-
-    // simple gain function
-    for (int i = 0; i < nSamples; ++i) {
-        outbuf[i] = input[i] * gain[i];
-    }
-}
+	void UKalman::next(int nSamples) {
+		const float estimate = ukf.getEstimation();
+		const float input    = in0(0);
+		ukf.update(input);
+		out0(0) = estimate;
+	}
 
 } // namespace UKalman
 
